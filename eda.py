@@ -3,32 +3,40 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-data= pd.read_csv('titanic.csv')
+def load_data(csv):
+    data=pd.read_csv(csv)
+    return data
 
 def run_eda_app():
+    st.subheader('EDA Section')
+
+    data = load_data('titanic.csv')
+
     submenu = st.sidebar.selectbox("Submenu",['Descriptive','Visualization'])
     if submenu == "Descriptive":
         st.write('Descriptive')
-        with st.expander("Dataframe"):
-            df = pd.read_csv('titanic.csv')
-            st.dataframe(df)
+        with st.expander('Data frame'):
+            st.dataframe(data)
 
-        with st.expander("Data Type"):
-            st.dataframe(df.dtypes)
+        with st.expander('Data Type'):
+            st.dataframe(data.dtypes)
 
-        with st.expander("Data Shape"):
-            st.dataframe(df.shape)
 
-        with st.expander("Descriptive Statistics"):
-            st.dataframe(df.describe().transpose())
+        with st.expander('Data Shape'):
+            st.dataframe(data.shape)
 
-        with st.expander("Missing Values"):
-            st.dataframe(df.isnull().sum())
-   
+        
+        with st.expander('Deskriptif statistic'):
+            st.dataframe(data.describe().transpose())
 
-    elif submenu == "Visualization":
-        st.write("Visualization Analysis")
+        
+        with st.expander('Null'):
+            st.dataframe(data.isna().sum().transpose())
+
+
+
+    elif submenu=="Visualization":
+        st.write("Visualization")
         with st.expander('Passenger belonging to Embarked'):
             embarked_counts = data['Embarked'].value_counts()
             fig, ax = plt.subplots()

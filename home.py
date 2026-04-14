@@ -1,9 +1,11 @@
 import streamlit as st
-import streamlit.components.v1 as stc
-import pandas as pd
-import joblib
-import matplotlib.pyplot as plt
 import streamlit.web.cli as stcli
+import pandas as pd
+import streamlit.components.v1 as stc 
+import joblib
+
+from eda import run_eda_app
+from prediction import run_predict_app
 
 st.set_page_config(page_title="Titanic ML",
 		   page_icon="🚢",
@@ -14,9 +16,6 @@ html_temp = """
 		<h3 style="color:white;text-align:center;font-family:arial;">PJJ DAS BDK Denpasar 2026</h3>
 		</div>
 		"""
-
-from eda import run_eda_app
-from prediction import run_predict_app
 
 
 def main():
@@ -36,6 +35,7 @@ def main():
     
     elif choice == "Prediction":
         run_predict_app()
+
 
 
 

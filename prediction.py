@@ -8,8 +8,9 @@ def load_model(model):
     model_load=joblib.load(model)
     return model_load
 
+
 def run_predict_app():
-    st.subheader("Prediction Section")
+    st.subheader('Prediction Section')
     model=load_model('model_rf.joblib')
     with st.sidebar:
         st.title("Features")
@@ -85,6 +86,7 @@ def run_predict_app():
             young_adult=0
             adult=0
             elderly=1    
+
 
     if st.button("Click here to predict"):
         st.info('Input :')
