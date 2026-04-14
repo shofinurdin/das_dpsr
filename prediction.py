@@ -11,7 +11,7 @@ def load_model(model):
 
 def run_predict_app():
     st.subheader('Prediction Section')
-    model=load_model('model_rf.joblib')
+    model=load_model('model.joblib')
     with st.sidebar:
         st.title("Features")
         pclass= st.selectbox('PClass :', (1,2,3))
