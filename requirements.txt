@@ -1,7 +1,8 @@
 streamlit==1.34.0
 joblib==1.1.1
 matplotlib==3.9.0
-numpy==1.23.2
+#numpy==1.23.2
+numpy
 #pandas==1.4.2
 pandas
 plotly==2.2.2
